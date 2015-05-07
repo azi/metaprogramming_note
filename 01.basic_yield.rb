@@ -1,0 +1,16 @@
+
+
+def a_method(a,b)
+    yield(a, b)
+end
+puts a_method(1, 2) { |x, y| (x + y) * 3 }  #=> 9
+
+
+
+def a_method(a, b)
+    return  a + yield(a, b) if block_given?
+      "no block"
+end
+
+puts a_method(1, 2) { |x, y| (x + y) * 3 }   #=> 10
+puts a_method(1, 2)                          #=> no block
